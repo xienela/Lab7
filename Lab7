@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите количество столбцов: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            double[] x = new double[n];
+            double[] y = new double[n];
+
+            Console.Write("Введите x: ");
+            for (int i = 0; i < n; i++)
+            {
+                x[i] = Convert.ToDouble(Console.ReadLine());
+            }
+
+            Console.Write("Введите y: ");
+            for (int i = 0; i < n; i++)
+            {
+                y[i] = Convert.ToDouble(Console.ReadLine());
+            }
+
+            double sum_x = 0;
+            double sum_y = 0;
+            double sum_xy = 0;
+            double sum_x2 = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                sum_x = sum_x + x[i];
+                sum_y = sum_y + y[i];
+                sum_xy = sum_xy + x[i] * y[i];
+                sum_x2 = sum_x2 + x[i] * x[i];
+
+            }
+
+            Console.WriteLine("Сумма X: " + sum_x);
+            Console.WriteLine("Сумма Y: " + sum_y);
+            Console.WriteLine("Сумма XY: " + sum_xy);
+            Console.WriteLine("Сумма X2: " + sum_x2);
+
+            Console.WriteLine();
+
+            double a = sum_x2;
+            double b = sum_x;
+            double c = sum_xy;
+            double d = sum_x;
+            double e = n;
+            double f = sum_y;
+            double b1 = (a * f - c * d) / (a * e - b * d);
+            double a1 = (c * e - b * f) / (a * e - b * d);
+            Console.WriteLine("A = " + a1);
+            Console.WriteLine("B = " + b1);
+            Console.WriteLine();
+
+            if (b1 < 0)
+                Console.WriteLine("y = " + a1 + "x " + b1);
+            else
+                Console.WriteLine("y = " + a1 + "x + " + b1);
+
+            Console.Read();
+        }
+
+            
+            
+       
+    }
+}
